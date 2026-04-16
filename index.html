@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расписание студентов</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-wrapper">
+        <nav class="sidebar">
+            <div class="menu-box">
+                <ul>
+                    <li><a href="#" onclick="showSection('schedule')">🗓️ Расписание пар</a></li>
+                    <li><a href="#" onclick="showSection('students')">👤 Список учеников</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="content">
+            <section id="schedule" class="tab-content">
+                <div class="header-flex">
+                    <h2>Управление расписанием</h2>
+                    <button onclick="saveCurrentSchedule()" class="save-btn">💾 Сохранить расписание</button>
+                </div>
+
+                <div class="courses-nav">
+                    <button class="course-btn" onclick="renderGroups(1)">1 курс</button>
+                    <button class="course-btn" onclick="renderGroups(2)">2 курс</button>
+                    <button class="course-btn" onclick="renderGroups(3)">3 курс</button>
+                </div>
+
+                <div id="groups-container" class="groups-nav">
+                    </div>
+
+                <div id="table-wrapper" style="display: none;">
+                    <h3 id="current-group-title">Группа: --</h3>
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>№</th>
+                                <th>Время</th>
+                                <th>Каб</th>
+                                <th>Пн</th>
+                                <th>Вт</th>
+                                <th>Ср</th>
+                                <th>Чт</th>
+                                <th>Пт</th>
+                            </tr>
+                        </thead>
+                        <tbody id="schedule-body">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="students" class="tab-content" style="display:none;">
+                <div class="container">
+                    <h2>Список учеников</h2>
+                    <div class="add-student-form">
+                        <input type="text" id="studentInput" placeholder="Введите имя студента">
+                        <button onclick="addStudent()">Добавить</button>
+                    </div>
+                    <ul id="studentsList" class="students-list"></ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
